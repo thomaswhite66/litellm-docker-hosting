@@ -1,17 +1,39 @@
-# model_list:
-#   - model_name: ollama-llama3.1
-#     litellm_params:
-#       model: ollama/llama3.1:8b
-#       api_key: 'your-openai-api-key'
-#       api_base: 'http://host.docker.internal:11434'
+model_list:
+  - model_name: llama3.1:8b-q4
+    litellm_params:
+      model: ollama_chat/llama3.1:8b
+      api_key: 'your-openai-api-key'
+      api_base: 'http://host.docker.internal:11434'
+  - model_name: mistral
+    litellm_params:
+      model: ollama_chat/mistral:latest
+      api_key: 'your-openai-api-key'
+      api_base: 'http://host.docker.internal:11434'
+  - model_name: Breeze:7b
+    litellm_params:
+      model: ollama_chat/ycchen/breeze-7b-instruct-v1_0:latest
+      api_key: 'your-openai-api-key'
+      api_base: 'http://host.docker.internal:11434'
+  - model_name: gemma3:27b
+    litellm_params:
+      model: ollama_chat/gemma3:27b
+      api_key: 'your-openai-api-key'
+      api_base: 'http://host.docker.internal:11434'
+  - model_name: gemma2:27b
+    litellm_params:
+      model: ollama_chat/gemma2:27b
+      api_key: 'your-openai-api-key'
+      api_base: 'http://host.docker.internal:11434'
 
 # general_settings:
   # master_key: sk-1234
   # alerting: ['slack']
   # proxy_batch_write_at: 60
   # database_connection_pool_limit: 10 # limit the number of database connections to = MAX Number of DB Connections/Number of instances of litellm proxy (Around 10-20 is good number)
- 
+  # store_model_in_db: true
+  # store_prompts_in_spend_logs: true
+
 litellm_settings:
-  request_timeout: 600 
+  request_timeout: 600
   # set_verbose: False # Switch off Debug Logging, ensure your logs do not have any debugging on
   # json_logs: true # Get debug logs in json format
