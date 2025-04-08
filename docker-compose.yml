@@ -1,11 +1,6 @@
-version: '3.11'
 services:
   litellm:
-    build:
-      context: .
-      args:
-        target: runtime
-    image: ghcr.io/berriai/litellm:main-stable
+    image: ghcr.io/berriai/litellm:main-v1.65.4-stable
     volumes:
       - ./config.yaml:/app/config.yaml
     command:
